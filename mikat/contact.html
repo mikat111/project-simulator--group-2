@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us</title>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f2f2f2;
+  }
+  
+  .navbar {
+    display: flex;
+    gap: 25px;
+    padding: 15px 80px; 
+    background: rgba(30, 30, 60, 0.85);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    backdrop-filter: blur(4px);
+  }
+
+  .navbar a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+
+  .navbar a:hover {
+    color: #a3d8ff;
+  }
+
+  /* Top header section */
+  .header {
+    background:  linear-gradient(135deg, #d3cce3, #e9e4f0);
+    color: #3f5893;
+    text-align: center;
+    padding: 80px 20px 40px 20px;
+  }
+  .header h1 {
+    margin: 0;
+    font-size: 36px;
+  }
+  .header p {
+    font-size: 16px;
+    margin-top: 10px;
+    color: black;
+  }
+
+  /* Form container */
+  .container {
+    max-width: 450px;
+    margin: -50px auto 40px; /* overlap header */
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  }
+
+  .container h2 {
+    text-align: center;
+    color:#3f5893;
+    margin-bottom: 20px;
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+    background: #395086;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  button:hover {
+    background: #9a64ab;
+  }
+
+  .error {
+    color: red;
+    font-size: 13px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+  }
+
+  .success-message {
+    text-align: center;
+    font-size: 16px;
+    color: green;
+    display: none;
+  }
+
+  .captcha-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    background: #e0e0e0;
+    padding: 8px 10px;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 4px;
+  }
+  .captcha-box button {
+    width: auto;
+    padding: 6px 10px;
+    font-size: 16px;
+    background: #395086;
+  }
+</style>
+</head>
+<body>
+ <div class="navbar">
+    <a href ="land.html">Home</a>
+    <a href="l.html">About</a>
+    <a href="authentication.html">Signup</a>
+    <a href="contact.html">Contact Us</a>
+  </div>
+
+<div class="header">
+  <h1>Contact Us</h1>
+  <p>Questions, bug reports, feedback, feature requests — we're here for it all.</p>
+</div>
+
+<div class="container">
+  <h2>Send us a message</h2>
+
+  <div id="form-area">
+    <input type="text" id="name" placeholder="Your Name">
+    <p id="nameErr" class="error"></p>
+
+    <input type="text" id="email" placeholder="Your Email">
+    <p id="emailErr" class="error"></p>
+
+    <textarea id="message" placeholder="How can we help?" rows="5"></textarea>
+    <p id="msgErr" class="error"></p>
+
+    <div class="captchabox">
+      <span id="captchatext"></span>
+      <button type="button" id="refresh-captcha">🔄</button>
+    </div>
+    <input type="text" id="captcha-input" placeholder="Enter Captcha">
+    <p id="captchaErr" class="error"></p>
+
+    <button id="submit-btn">SEND</button>
+  </div>
+
+  <p class="success-message" id="success-msg">Thank you! Your inquiry has been submitted.</p>
+</div>
+
+<script>
+
+function generateCaptcha() {
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  let captcha = '';
+  for(let i=0;i<6;i++){
+    captcha += chars.charAt(Math.floor(Math.random()*chars.length));
+  }
+  document.getElementById('captchatext').innerText = captcha;
+  return captcha;
+}
+
+let currentCaptcha = generateCaptcha();
+document.getElementById('refresh-captcha').addEventListener('click', function(){
+  currentCaptcha = generateCaptcha();
+});
+
+
+document.getElementById('submit-btn').addEventListener('click', function() {
+  let name = document.getElementById('name').value.trim();
+  let email = document.getElementById('email').value.trim();
+  let msg = document.getElementById('message').value.trim();
+  let captchaInput = document.getElementById('captcha-input').value.trim();
+  let valid = true;
+
+  document.getElementById('nameErr').innerText = '';
+  document.getElementById('emailErr').innerText = '';
+  document.getElementById('msgErr').innerText = '';
+  document.getElementById('captchaErr').innerText = '';
+
+  if(name === '') { document.getElementById('nameErr').innerText = 'Name required'; valid=false;}
+  if(email === '') { document.getElementById('emailErr').innerText = 'Email required'; valid=false;}
+  if(msg === '') { document.getElementById('msgErr').innerText = 'Message required'; valid=false;}
+  if(captchaInput === '') { document.getElementById('captchaErr').innerText = 'Captcha required'; valid=false;}
+  else if(captchaInput!== currentCaptcha) { 
+    document.getElementById('captchaErr').innerText = 'Captcha does not match'; 
+    valid=false;
+    currentCaptcha = generateCaptcha();
+  }
+
+  if(valid) {
+    document.getElementById('form-area').style.display = 'none';
+    document.getElementById('success-msg').style.display = 'block';
+  }
+});
+</script>
+
+</body>
+</html>

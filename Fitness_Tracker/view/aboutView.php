@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fitness Tracker About Page</title>
+<style>
+body { font-family: 'Segoe UI', sans-serif; margin:0; padding:0; color:white; }
+.navbar { display:flex; gap:25px; padding:15px 80px; background: rgba(30,30,60,0.85); position:fixed; top:0; width:100%; z-index:10; backdrop-filter:blur(4px); }
+.navbar a { color:#e0e0e0; text-decoration:none; font-weight:bold; transition:0.3s; }
+.navbar a:hover { color:#a3d8ff; }
+.header { text-align:center; margin-top:120px; margin-bottom:50px; }
+.header h1 { font-size:48px; color:#4b6cb7; margin-bottom:15px; }
+.header p { font-size:20px; color:#2c3e50; }
+.infos { display:flex; flex-wrap:wrap; gap:25px; justify-content:center; margin-bottom:50px; }
+.info { width:280px; background:linear-gradient(135deg,#d3cce3,#e9e4f0); border-radius:14px; padding:20px; color:#2d2d2d; box-shadow:0 4px 12px rgba(0,0,0,0.25); transition: transform 0.3s, box-shadow 0.3s; }
+.info h3 { margin-bottom:10px; font-size:20px; color:#4b6cb7; }
+.info p { font-size:15px; line-height:1.4; color:#444; }
+footer { text-align:center; font-size:14px; color:#bbb; margin-top:50px; padding-bottom:20px; }
+</style>
+</head>
+<body>
+
+<div class="navbar">
+  <a href="index.php?page=landing">Home</a>
+  <a href="index.php?page=about">About</a>
+  <a href="index.php?page=auth&form=signup">Signup</a>
+  <a href="index.php?page=auth&form=login">Login</a>
+  <a href="index.php?page=contact">Contact Us</a>
+</div>
+
+<div class="header">
+  <h1>Fitness Tracker</h1>
+  <p>Achieve Your Goals</p>
+</div>
+
+<div class="infos">
+  <div class="info"><h3>Workout Logging</h3><p>Log sets, reps, weights, and session notes.</p></div>
+  <div class="info"><h3>Exercise Library</h3><p>Browse exercises, filter by equipment/body part.</p></div>
+  <div class="info"><h3>Progress Charts</h3><p>View your progress over time.</p></div>
+  <div class="info"><h3>Workout Plans</h3><p>Choose programs and adjust daily schedule.</p></div>
+  <div class="info"><h3>Friend Challenges</h3><p>Create challenges and see leaderboard.</p></div>
+  <div class="info"><h3>Water Intake</h3><p>Log daily intake and track progress.</p></div>
+  <div class="info"><h3>Body Measurements</h3><p>Track weight and circumference.</p></div>
+  <div class="info"><h3>Goal Setting</h3><p>Set SMART goals and track completion.</p></div>
+  <div class="info"><h3>Device Sync</h3><p>Connect devices and sync data.</p></div>
+  <div class="info"><h3>Nutrition Logging</h3><p>Log meals and track macros.</p></div>
+</div>
+
+<footer>
+  &copy; 2025 Fitness Tracker
+</footer>
+
+</body>
+</html>

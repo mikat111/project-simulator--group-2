@@ -1,0 +1,63 @@
+/* General page styling */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+}
+
+/* Header styling */
+header {
+  background-color: #333;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+/* Navigation bar styling */
+nav {
+  background-color: #555;
+  padding: 10px;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Photo gallery layout */
+.photo-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 30px;
+}
+
+/* Individual photo card */
+.photo-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin: 15px;
+  padding: 10px;
+  text-align: center;
+  width: 220px;
+}
+
+.photo-card img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.photo-card p {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #333;
+}

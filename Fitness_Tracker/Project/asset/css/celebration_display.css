@@ -1,0 +1,71 @@
+/* General page styling */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fef9f5;
+}
+
+/* Header styling */
+header {
+  background-color: #2c3e50;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Navigation bar styling */
+nav {
+  background-color: #34495e;
+  padding: 10px;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* Achievement section layout */
+.achievement-section {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.achievement-section h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #e67e22;
+}
+
+/* Trophy card styling */
+.trophy-card {
+  background-color: #fff8e6;
+  border: 2px solid #f1c40f;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.trophy-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #d35400;
+}
+
+.trophy-card p {
+  font-size: 16px;
+  color: #555;
+}
